@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>4-Day Training Plan (Smith Machine–Compatible)</title>
+  <meta name="description" content="A 4-day/week Smith machine–compatible strength + endurance plan." />
+  <style>
+    :root{
+      --bg:#0b0f17;
+      --card:#121a27;
+      --card2:#0f1622;
+      --text:#e8edf6;
+      --muted:#a9b4c7;
+      --accent:#6ee7ff;
+      --accent2:#a78bfa;
+      --border:rgba(255,255,255,.08);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 10% 10%, rgba(110,231,255,.10), transparent 45%),
+                  radial-gradient(900px 600px at 90% 15%, rgba(167,139,250,.10), transparent 45%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+    a{color:inherit}
+    .container{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 18px 64px;
+    }
+    header{
+      padding: 18px 0 24px;
+      display:flex;
+      gap:16px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .title-wrap{
+      max-width: 720px;
+    }
+    h1{
+      margin: 0 0 8px;
+      font-size: clamp(26px, 3.4vw, 40px);
+      letter-spacing:-.02em;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size: 15px;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      border-radius:999px;
+      color:var(--muted);
+      font-size: 13px;
+      white-space:nowrap;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 0 18px rgba(110,231,255,.35);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    @media(min-width: 860px){
+      .grid{
+        grid-template-columns: 1.05fr .95fr;
+        align-items:start;
+      }
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card .inner{
+      padding: 18px 18px 16px;
+    }
+
+    h2{
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing:-.01em;
+    }
+    h3{
+      margin: 16px 0 8px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing:.08em;
+      color: var(--muted);
+    }
+
+    .split{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:10px;
+    }
+    .split .item{
+      display:flex;
+      gap:10px;
+      padding:12px 12px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.18);
+      border-radius: 12px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      padding: 4px 10px;
+      border-radius:999px;
+      font-size: 12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      white-space:nowrap;
+      height: fit-content;
+    }
+    .item b{display:block}
+    .muted{color:var(--muted)}
+    .divider{
+      height:1px;
+      background: var(--border);
+      margin: 14px 0;
+    }
+
+    .day{
+      border-top:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.02), transparent);
+    }
+    .day:first-of-type{border-top:none}
+    .day-head{
+      padding: 14px 18px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap: 12px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .day-head:hover{
+      background: rgba(255,255,255,.03);
+    }
+    .day-title{
+      margin:0;
+      font-size: 16px;
+    }
+    .tag{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(0,0,0,.15);
+      white-space:nowrap;
+    }
+    details[open] .tag{
+      color: var(--text);
+      border-color: rgba(110,231,255,.25);
+      box-shadow: 0 0 0 3px rgba(110,231,255,.10);
+    }
+    .content{
+      padding: 0 18px 18px;
+    }
+
+    ul{
+      margin: 8px 0 0 18px;
+      padding:0;
+    }
+    li{margin: 6px 0}
+    .workout{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media(min-width: 680px){
+      .workout{
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .box{
+      padding: 14px 14px;
+      border-radius: 14px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.18);
+    }
+    .box h4{
+      margin:0 0 6px;
+      font-size: 14px;
+      letter-spacing:-.01em;
+    }
+    .sets{
+      font-size: 13px;
+      color: var(--muted);
+      margin:0 0 8px;
+    }
+    .notes{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer{
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align:center;
+    }
+    .kbd{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+      padding: 2px 6px;
+      border:1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(0,0,0,.25);
+      color: var(--text);
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <header>
+      <div class="title-wrap">
+        <h1>4-Day Training Plan (Smith Machine–Compatible)</h1>
+        <p class="subtitle">Strength + endurance plan formatted for a simple Netlify deploy. Expand each day to view details.</p>
+      </div>
+      <div class="badge" title="You can deploy this single HTML file to Netlify">
+        <span class="dot" aria-hidden="true"></span>
+        Single-file site • Netlify-ready
+      </div>
+    </header>
+
+    <section class="grid">
+      <!-- Weekly Split -->
+      <div class="card">
+        <div class="inner">
+          <h2>Weekly Split</h2>
+          <p class="muted" style="margin:0 0 10px;">
+            Rest days are flexible. A common flow is <span class="kbd">Mon</span> Day 1, <span class="kbd">Tue</span> Day 2, <span class="kbd">Thu</span> Day 4, <span class="kbd">Fri</span> Day 5.
+          </p>
+
+          <div class="split">
+            <div class="item">
+              <span class="pill">Day 1</span>
+              <div>
+                <b>Lower (Hinge) + Intervals</b>
+                <div class="muted">Posterior chain strength + short hard conditioning</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <span class="pill">Day 2</span>
+              <div>
+                <b>Upper (Push/Pull) + Zone 2</b>
+                <div class="muted">Upper strength + aerobic base</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <span class="pill">Day 3</span>
+              <div>
+                <b>Rest / Walk / Mobility</b>
+                <div class="muted">Light movement, recovery, optional stretching</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <span class="pill">Day 4</span>
+              <div>
+                <b>Lower (Squat) + Conditioning</b>
+                <div class="muted">Leg strength + controlled circuit</div>
+              </div>
+            </div>
+
+            <div class="item">
+              <span class="pill">Day 5</span>
+              <div>
+                <b>Upper (Pull) + Carries</b>
+                <div class="muted">Back/posture strength + loaded endurance</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+          <p class="muted" style="margin:0;">
+            Tip: If your lower back feels worse after training (not just normal muscle fatigue), reduce load and keep reps smooth.
+          </p>
+        </div>
+      </div>
+
+      <!-- Quick Endurance Notes -->
+      <div class="card">
+        <div class="inner">
+          <h2>Endurance Included</h2>
+          <p class="muted" style="margin:0 0 8px;">
+            You’ll do both Zone 2 (easy) and intervals (hard/brief).
+          </p>
+          <ul class="muted">
+            <li><b>Zone 2:</b> 20–30 min at a pace where you can talk in full sentences.</li>
+            <li><b>Intervals:</b> short bursts (30s hard / 90s easy) to build capacity without long grind.</li>
+            <li><b>Carries:</b> farmer’s walks for core, grip, and real-world endurance.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workouts -->
+    <section class="card" style="margin-top:16px;">
+      <details class="day" open>
+        <summary class="day-head">
+          <div>
+            <p class="day-title"><b>DAY 1</b> — LOWER BODY (HINGE FOCUS) + SHORT CARDIO</p>
+            <div class="muted" style="font-size:13px;">Posterior chain + short intervals</div>
+          </div>
+          <span class="tag">Strength + Intervals</span>
+        </summary>
+
+        <div class="content">
+          <h3>Strength</h3>
+          <div class="workout">
+            <div class="box">
+              <h4>Smith Machine Romanian Deadlift</h4>
+              <p class="sets">4×6–8</p>
+              <ul class="notes">
+                <li>Stand <b>slightly forward</b> of the bar</li>
+                <li>Push hips back, soft knees</li>
+                <li>Feel hamstrings, not lower back</li>
+              </ul>
+            </div>
+
+            <div class="box">
+              <h4>Dumbbell Bulgarian Split Squat</h4>
+              <p class="sets">3×8 / leg</p>
+              <p class="notes">Longer stride = more glute/hip. Keep control.</p>
+            </div>
+
+            <div class="box">
+              <h4>Hip Thrust (Smith or Barbell)</h4>
+              <p class="sets">3×10–12</p>
+              <p class="notes">Pause 1s at the top, ribs down, squeeze glutes.</p>
+            </div>
+
+            <div class="box">
+              <h4>Seated or Lying Hamstring Curl</h4>
+              <p class="sets">3×12</p>
+              <p class="notes">Full range, smooth reps.</p>
+            </div>
+
+            <div class="box">
+              <h4>Dead Bugs</h4>
+              <p class="sets">3×10 / side</p>
+              <p class="notes">Slow. Keep lower back gently pressed into the floor.</p>
+            </div>
+          </div>
+
+          <h3>Conditioning (8–10 min)</h3>
+          <div class="box">
+            <h4>Bike / Rower / Treadmill Intervals</h4>
+            <p class="sets">30 sec hard • 90 sec easy × 5 rounds</p>
+            <p class="notes">Hard = breathing heavy, but maintain control. Easy = recover fully.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="day">
+        <summary class="day-head">
+          <div>
+            <p class="day-title"><b>DAY 2</b> — UPPER BODY (PUSH + PULL) + ZONE 2</p>
+            <div class="muted" style="font-size:13px;">Upper strength + aerobic base</div>
+          </div>
+          <span class="tag">Strength + Zone 2</span>
+        </summary>
+
+        <div class="content">
+          <h3>Strength</h3>
+          <div class="workout">
+            <div class="box">
+              <h4>Incline Dumbbell Bench Press</h4>
+              <p class="sets">4×6–8</p>
+              <p class="notes">Stop 1–2 reps before failure; keep shoulders packed.</p>
+            </div>
+
+            <div class="box">
+              <h4>Chest-Supported Machine or DB Row</h4>
+              <p class="sets">4×8–10</p>
+              <p class="notes">Pull elbows back, squeeze upper back for 1s.</p>
+            </div>
+
+            <div class="box">
+              <h4>Seated Dumbbell Shoulder Press</h4>
+              <p class="sets">3×8</p>
+              <p class="notes">Neutral grip if shoulders feel better.</p>
+            </div>
+
+            <div class="box">
+              <h4>Cable Lateral Raises</h4>
+              <p class="sets">3×12–15</p>
+              <p class="notes">Control down; don’t swing.</p>
+            </div>
+
+            <div class="box">
+              <h4>Cable Triceps Pushdowns</h4>
+              <p class="sets">3×12–15</p>
+              <p class="notes">Full extension; elbows stay pinned.</p>
+            </div>
+          </div>
+
+          <h3>Endurance</h3>
+          <div class="box">
+            <h4>Zone 2 Cardio</h4>
+            <p class="sets">20–30 minutes</p>
+            <ul class="notes">
+              <li>Brisk incline walk</li>
+              <li>Easy jog</li>
+              <li>Bike</li>
+              <li class="muted">You should be able to talk in sentences.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="day">
+        <summary class="day-head">
+          <div>
+            <p class="day-title"><b>DAY 4</b> — LOWER BODY (SQUAT FOCUS) + METCON</p>
+            <div class="muted" style="font-size:13px;">Squat pattern + controlled circuit</div>
+          </div>
+          <span class="tag">Strength + Circuit</span>
+        </summary>
+
+        <div class="content">
+          <h3>Strength</h3>
+          <div class="workout">
+            <div class="box">
+              <h4>Smith Machine Squat</h4>
+              <p class="sets">4×6–8</p>
+              <ul class="notes">
+                <li>Feet slightly forward</li>
+                <li>Sit “down and back”</li>
+                <li>Neutral spine, brace hard</li>
+              </ul>
+            </div>
+
+            <div class="box">
+              <h4>Goblet Squat (DB)</h4>
+              <p class="sets">3×10</p>
+              <p class="notes">Reinforces patterning and upright torso.</p>
+            </div>
+
+            <div class="box">
+              <h4>Walking Lunges (DB)</h4>
+              <p class="sets">3×10 / leg</p>
+              <p class="notes">Long stride, controlled knee tracking.</p>
+            </div>
+
+            <div class="box">
+              <h4>Leg Extension</h4>
+              <p class="sets">3×12–15</p>
+              <p class="notes">Smooth reps, no bouncing.</p>
+            </div>
+
+            <div class="box">
+              <h4>Side Planks</h4>
+              <p class="sets">3×30–45 sec / side</p>
+              <p class="notes">Hips stacked, ribs down, steady breathing.</p>
+            </div>
+          </div>
+
+          <h3>Conditioning (10–12 min)</h3>
+          <div class="box">
+            <h4>Circuit — 3–4 rounds</h4>
+            <ul class="notes">
+              <li>15 kettlebell swings</li>
+              <li>12 bodyweight squats</li>
+              <li>30 sec rest</li>
+              <li class="muted">Keep breathing controlled.</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="day">
+        <summary class="day-head">
+          <div>
+            <p class="day-title"><b>DAY 5</b> — UPPER BODY (PULL) + LOADED ENDURANCE</p>
+            <div class="muted" style="font-size:13px;">Back/posture + carries</div>
+          </div>
+          <span class="tag">Pull + Carries</span>
+        </summary>
+
+        <div class="content">
+          <h3>Strength</h3>
+          <div class="workout">
+            <div class="box">
+              <h4>Lat Pulldown or Assisted Pull-Ups</h4>
+              <p class="sets">4×8–10</p>
+              <p class="notes">Full stretch at top, pull to upper chest.</p>
+            </div>
+
+            <div class="box">
+              <h4>Single-Arm Dumbbell Row</h4>
+              <p class="sets">3×10 / side</p>
+              <p class="notes">Brace with free hand; avoid twisting.</p>
+            </div>
+
+            <div class="box">
+              <h4>Face Pulls</h4>
+              <p class="sets">3×15</p>
+              <p class="notes">Elbows high, squeeze rear delts/upper back.</p>
+            </div>
+
+            <div class="box">
+              <h4>Rear Delt Flyes (DB or Cable)</h4>
+              <p class="sets">3×12–15</p>
+              <p class="notes">Control; don’t shrug.</p>
+            </div>
+
+            <div class="box">
+              <h4>EZ-Bar or DB Curls</h4>
+              <p class="sets">3×10–12</p>
+              <p class="notes">Full ROM, steady reps.</p>
+            </div>
+          </div>
+
+          <h3>Endurance Finisher</h3>
+          <div class="box">
+            <h4>Farmer’s Carries</h4>
+            <p class="sets">4–6 rounds • 30–45 sec carry • 60 sec rest</p>
+            <p class="notes">Chest tall, slow nasal breathing, controlled steps.</p>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <p class="footer">
+      Deploy tip: save as <span class="kbd">index.html</span> and drag-drop the folder into Netlify.
+    </p>
+  </main>
+</body>
+</html>
